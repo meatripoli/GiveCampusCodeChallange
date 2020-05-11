@@ -5,22 +5,23 @@ loop through array if next element === currentNumber then add to count
 else replace current element and restart count
 */
 codeObj.repeatedNumbers = function(array){
-    let countRepeat=1;
-    let currentNumber=0;
-    let maxCount=0;
-    array.forEach(num=>{
-      if(num===currentNumber){
-        countRepeat+=1;
-      }
-      else{
-        if(countRepeat>maxCount){
-          maxCount=countRepeat;
-        }
-        countRepeat=1;
-      };
-      currentNumber=num;
-    });
-    return maxCount;
+  //starting the countRepeat at 1 because if its in the list its repeated atleast 1 time
+  let countRepeat=1;
+  let currentNumber=0;
+  let maxCount=0;
+  array.forEach(num=>{
+    if(num===currentNumber){
+      countRepeat+=1;
+    }
+    else{
+      countRepeat=1;
+    };
+    if(countRepeat>maxCount){
+      maxCount=countRepeat;
+    }
+    currentNumber=num;
+  });
+  return maxCount;
 };
 
 /*
